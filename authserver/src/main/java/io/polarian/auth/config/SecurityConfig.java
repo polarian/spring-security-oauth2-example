@@ -28,7 +28,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     	JdbcUserDetailsManagerConfigurer<AuthenticationManagerBuilder> builder = auth.jdbcAuthentication();
     	builder.dataSource(dataSource);
     	JdbcUserDetailsManager userDetailsService = builder.getUserDetailsService();
-
         userDetailsService.setUsersByUsernameQuery("select username,password,enabled from users where username = ?");
         userDetailsService.setAuthoritiesByUsernameQuery("select username,authority from user_roles where username = ?");
         userDetailsService.setCreateUserSql("insert into users (username, password, enabled) values (?,?,?)");

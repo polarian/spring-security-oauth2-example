@@ -8,7 +8,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 @Configuration
 @EnableResourceServer
 public class OAuthConfig extends ResourceServerConfigurerAdapter {
-
     @Override
     public void configure(final HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests().anyRequest().authenticated();
